@@ -1,3 +1,4 @@
+from pydoc import cli
 import socket
 
 # family: IPv4 기반 주소 (AF_INET)
@@ -5,6 +6,7 @@ import socket
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 client.connect(('127.0.0.1', 6543))
-client.send(b'Hello, world!')
+client.send('한글이다'.encode('utf-8'))
+client.send(b'this is english')
 
 print(client.recv(1024))
